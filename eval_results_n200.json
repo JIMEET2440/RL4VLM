@@ -1,0 +1,1663 @@
+{
+  "args": {
+    "model_path": "/mnt/raid/rl_gaming/RL4VLM_ALF/RL4VLM/checkpoints/llava-v1.6-mistral-7b-alf-sft",
+    "data_path": "/mnt/raid/rl_gaming/RL4VLM_ALF/RL4VLM/sft_data/alfworld-gpt4-45k.json",
+    "image_folder": "/mnt/raid/rl_gaming/RL4VLM_ALF/RL4VLM/sft_data/alf_data_folder",
+    "num_samples": 200,
+    "gpu": 4,
+    "seed": 42,
+    "max_new_tokens": 512,
+    "temperature": 0.0,
+    "output": null,
+    "compare_base": false
+  },
+  "finetuned": {
+    "metrics": {
+      "total_samples": 200,
+      "evaluated": 200,
+      "exact_action_match": 119,
+      "action_accuracy": 59.5,
+      "valid_json_count": 200,
+      "valid_json_rate": 100.0,
+      "per_task": {
+        "all": {
+          "total": 3,
+          "correct": 3,
+          "accuracy": 100.0
+        },
+        "pick_and_place": {
+          "total": 38,
+          "correct": 25,
+          "accuracy": 65.78947368421053
+        },
+        "pick_two_obj_and_place": {
+          "total": 43,
+          "correct": 25,
+          "accuracy": 58.139534883720934
+        },
+        "pick_clean_then_place_in_recep": {
+          "total": 31,
+          "correct": 18,
+          "accuracy": 58.06451612903226
+        },
+        "pick_heat_then_place_in_recep": {
+          "total": 20,
+          "correct": 7,
+          "accuracy": 35.0
+        },
+        "pick_cool_then_place_in_recep": {
+          "total": 33,
+          "correct": 18,
+          "accuracy": 54.54545454545454
+        },
+        "look_at_obj_in_light": {
+          "total": 32,
+          "correct": 23,
+          "accuracy": 71.875
+        }
+      }
+    },
+    "results": [
+      {
+        "id": "episode_131_time_step_19",
+        "task": "all",
+        "gt_action": "use desklamp 1",
+        "pred_action": "use desklamp 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_161_time_step_29",
+        "task": "pick_and_place",
+        "gt_action": "put book 1 in/on armchair 1",
+        "pred_action": "put book 1 in/on armchair 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_34_time_step_11",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "go to dresser 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_197_time_step_52",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "clean cloth 1 with sink 1",
+        "pred_action": "clean cloth 1 with sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_149_time_step_2",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "open cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_119_time_step_28",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to stoveburner 1",
+        "pred_action": "put egg 1 in/on stoveburner 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_0_time_step_43",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "open drawer 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_149_time_step_10",
+        "task": "pick_and_place",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_183_time_step_5",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to sidetable 1",
+        "pred_action": "go to sidetable 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_192_time_step_33",
+        "task": "pick_and_place",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "go to cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_127_time_step_42",
+        "task": "pick_and_place",
+        "gt_action": "inventory",
+        "pred_action": "go to cabinet 2",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_61_time_step_28",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "examine fridge 1",
+        "pred_action": "close fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_9_time_step_37",
+        "task": "pick_and_place",
+        "gt_action": "take soapbottle 1 from sinkbasin 1",
+        "pred_action": "take soapbottle 1 from sinkbasin 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_44_time_step_26",
+        "task": "pick_and_place",
+        "gt_action": "go to safe 1",
+        "pred_action": "go to safe 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_41_time_step_7",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine creditcard 1",
+        "pred_action": "examine creditcard 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_137_time_step_13",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine candle 1",
+        "pred_action": "examine candle 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_112_time_step_52",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "examine soapbar 1",
+        "pred_action": "examine soapbar 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_131_time_step_23",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to armchair 1",
+        "pred_action": "examine remotecontrol 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_133_time_step_14",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_76_time_step_35",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "examine desk 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_37_time_step_2",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "open fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_15_time_step_22",
+        "task": "pick_and_place",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_84_time_step_31",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_145_time_step_4",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to stoveburner 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_192_time_step_5",
+        "task": "pick_and_place",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "go to cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_5_time_step_39",
+        "task": "pick_and_place",
+        "gt_action": "put box 1 in/on armchair 1",
+        "pred_action": "put box 1 in/on armchair 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_115_time_step_14",
+        "task": "pick_and_place",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_50_time_step_4",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "examine candle 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_59_time_step_52",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "examine dresser 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_3_time_step_33",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "inventory",
+        "pred_action": "go to drawer 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_8_time_step_10",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "look",
+        "pred_action": "go to cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_28_time_step_16",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_10_time_step_30",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_91_time_step_15",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "examine cellphone 1",
+        "pred_action": "examine cellphone 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_3_time_step_12",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to dresser 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_22_time_step_3",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_106_time_step_36",
+        "task": "pick_and_place",
+        "gt_action": "put remotecontrol 1 in/on armchair 1",
+        "pred_action": "put remotecontrol 1 in/on armchair 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_85_time_step_49",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_148_time_step_43",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "examine saltshaker 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_136_time_step_3",
+        "task": "pick_and_place",
+        "gt_action": "take toiletpaper 1 from drawer 1",
+        "pred_action": "take toiletpaper 1 from drawer 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_150_time_step_42",
+        "task": "pick_and_place",
+        "gt_action": "go to cabinet 3",
+        "pred_action": "go to toilet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_141_time_step_47",
+        "task": "pick_and_place",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_120_time_step_19",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "clean cloth 1 with sink 1",
+        "pred_action": "clean cloth 1 with sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_97_time_step_17",
+        "task": "pick_and_place",
+        "gt_action": "go to sof1",
+        "pred_action": "go to sof1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_78_time_step_43",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_183_time_step_2",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_63_time_step_27",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use desklamp 1",
+        "pred_action": "use desklamp 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_67_time_step_2",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_176_time_step_26",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_178_time_step_39",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_149_time_step_3",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_113_time_step_9",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to countertop 1",
+        "pred_action": "open cabinet 2",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_2_time_step_47",
+        "task": "pick_and_place",
+        "gt_action": "go to drawer 2",
+        "pred_action": "go to drawer 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_24_time_step_10",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "put handtowel 1 in/on toilet 1",
+        "pred_action": "put handtowel 1 in/on toilet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_114_time_step_41",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "put hot potato in/on garbagecan 1",
+        "pred_action": "examine garbagecan 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_102_time_step_2",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_124_time_step_6",
+        "task": "pick_and_place",
+        "gt_action": "go to dresser 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_41_time_step_17",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to drawer 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_74_time_step_3",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "go to cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_98_time_step_12",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_66_time_step_27",
+        "task": "pick_and_place",
+        "gt_action": "go to toiletpaperhanger 1",
+        "pred_action": "go to toiletpaperhanger 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_160_time_step_37",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "open cabinet 1",
+        "pred_action": "open cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_125_time_step_23",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_18_time_step_45",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_114_time_step_22",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_131_time_step_32",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "take remotecontrol 1 from coffeetable 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_147_time_step_16",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to sink 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_151_time_step_3",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "go to cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_3_time_step_19",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to dresser 1",
+        "pred_action": "go to drawer 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_56_time_step_37",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_125_time_step_48",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sinkbasin 1",
+        "pred_action": "go to sinkbasin 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_129_time_step_51",
+        "task": "all",
+        "gt_action": "examine desk 1",
+        "pred_action": "examine desk 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_32_time_step_4",
+        "task": "pick_and_place",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to drawer 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_137_time_step_35",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sink 1",
+        "pred_action": "go to sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_114_time_step_4",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_98_time_step_24",
+        "task": "pick_and_place",
+        "gt_action": "go to drawer 2",
+        "pred_action": "go to drawer 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_173_time_step_48",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine newspaper 1",
+        "pred_action": "examine newspaper 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_186_time_step_17",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_193_time_step_22",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to shelf 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_142_time_step_39",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine pen 1",
+        "pred_action": "examine pen 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_100_time_step_29",
+        "task": "pick_and_place",
+        "gt_action": "put pen 1 in/on desk 1",
+        "pred_action": "put pen 1 in/on desk 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_87_time_step_48",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "examine bowl 1",
+        "pred_action": "clean bowl 1 with sink 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_125_time_step_1",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_43_time_step_18",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "take cup 1 from microwave 1",
+        "pred_action": "take mug 1 from microwave 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_173_time_step_45",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to sinkbasin 1",
+        "pred_action": "go to sinkbasin 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_148_time_step_6",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine alarmclock 1",
+        "pred_action": "examine alarmclock 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_33_time_step_1",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_70_time_step_32",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "examine drawer 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_150_time_step_11",
+        "task": "pick_and_place",
+        "gt_action": "look",
+        "pred_action": "go to toilet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_190_time_step_4",
+        "task": "pick_and_place",
+        "gt_action": "open cabinet 2",
+        "pred_action": "open cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_132_time_step_5",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sink 1",
+        "pred_action": "go to sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_9_time_step_5",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "go to sidetable 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_114_time_step_12",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to drawer 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_194_time_step_40",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_69_time_step_31",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_79_time_step_35",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to coffeetable 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_126_time_step_46",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to handtowelholder 1",
+        "pred_action": "go to handtowelholder 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_44_time_step_47",
+        "task": "pick_and_place",
+        "gt_action": "go to desk 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_56_time_step_42",
+        "task": "pick_and_place",
+        "gt_action": "go to sof1",
+        "pred_action": "go to sof1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_181_time_step_39",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_187_time_step_15",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "examine fridge 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_93_time_step_51",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sink 1",
+        "pred_action": "go to sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_100_time_step_16",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_25_time_step_35",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sinkbasin 1",
+        "pred_action": "go to sinkbasin 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_55_time_step_43",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine desk 1",
+        "pred_action": "examine desk 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_102_time_step_20",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to microwave 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_152_time_step_4",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "open cabinet 2",
+        "pred_action": "open cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_124_time_step_13",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to bed 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_173_time_step_19",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "take soapbar 1 from drawer 1",
+        "pred_action": "take soapbar 1 from drawer 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_135_time_step_35",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to cabinet 2",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_66_time_step_17",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine watch 1",
+        "pred_action": "examine watch 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_5_time_step_2",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sink 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_183_time_step_26",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "open microwave 1",
+        "pred_action": "close microwave 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_0_time_step_49",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "look",
+        "pred_action": "go to desk 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_152_time_step_7",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to cabinet 2",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_15_time_step_30",
+        "task": "pick_and_place",
+        "gt_action": "go to sof1",
+        "pred_action": "go to sof1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_184_time_step_2",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine sidetable 1",
+        "pred_action": "use desklamp 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_180_time_step_1",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_52_time_step_49",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to coffeetable 1",
+        "pred_action": "go to drawer 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_18_time_step_44",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_51_time_step_32",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "clean egg 1 with sink 1",
+        "pred_action": "clean egg 1 with sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_179_time_step_28",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "take spatul2 from countertop 1",
+        "pred_action": "take spatul2 from countertop 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_124_time_step_29",
+        "task": "pick_and_place",
+        "gt_action": "go to armchair 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_113_time_step_45",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine box 1",
+        "pred_action": "examine box 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_199_time_step_16",
+        "task": "pick_and_place",
+        "gt_action": "go to sof1",
+        "pred_action": "go to sof1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_138_time_step_28",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use floorlamp 1",
+        "pred_action": "use floorlamp 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_116_time_step_9",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_133_time_step_38",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to desk 1",
+        "pred_action": "go to desk 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_68_time_step_7",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_159_time_step_22",
+        "task": "pick_and_place",
+        "gt_action": "go to armchair 1",
+        "pred_action": "go to armchair 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_17_time_step_43",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "go to drawer 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_113_time_step_15",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "open drawer 2",
+        "pred_action": "open drawer 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_28_time_step_37",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_188_time_step_40",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "use desklamp 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_9_time_step_52",
+        "task": "pick_and_place",
+        "gt_action": "examine soapbottle 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_68_time_step_52",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "cool bowl 1 with fridge 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_89_time_step_18",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine pencil 1",
+        "pred_action": "examine pencil 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_156_time_step_48",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_152_time_step_49",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "open drawer 1",
+        "pred_action": "open drawer 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_68_time_step_18",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "cool bowl 1 with fridge 1",
+        "pred_action": "cool bowl 1 with fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_80_time_step_24",
+        "task": "pick_and_place",
+        "gt_action": "go to sofa 1",
+        "pred_action": "go to sof1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_166_time_step_33",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use floorlamp 1",
+        "pred_action": "examine creditcard 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_159_time_step_47",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to sink 1",
+        "pred_action": "go to sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_4_time_step_21",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to tvstand 1",
+        "pred_action": "go to tvstand 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_14_time_step_40",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "look",
+        "pred_action": "go to drawer 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_188_time_step_27",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use desklamp 1",
+        "pred_action": "use desklamp 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_165_time_step_32",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "put pan 1 in/on sinkbasin 1",
+        "pred_action": "examine sinkbasin 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_191_time_step_6",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_177_time_step_22",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use floorlamp 1",
+        "pred_action": "go to floorlamp 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_186_time_step_7",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_133_time_step_16",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_91_time_step_10",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "examine cellphone 1",
+        "pred_action": "examine cellphone 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_161_time_step_43",
+        "task": "pick_and_place",
+        "gt_action": "put book 1 in/on armchair 1",
+        "pred_action": "put book 1 in/on armchair 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_24_time_step_31",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to handtowelholder 1",
+        "pred_action": "examine handtowel 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_28_time_step_11",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use floorlamp 1",
+        "pred_action": "examine creditcard 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_25_time_step_23",
+        "task": "pick_and_place",
+        "gt_action": "go to drawer 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_57_time_step_6",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "heat apple 1 with microwave 1",
+        "pred_action": "heat apple 1 with microwave 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_4_time_step_5",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_180_time_step_43",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "clean pot 1 with sinkbasin 1",
+        "pred_action": "clean pot 1 with sinkbasin 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_125_time_step_50",
+        "task": "all",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_52_time_step_43",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "inventory",
+        "pred_action": "go to fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_136_time_step_11",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_155_time_step_3",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "close fridge 1",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_110_time_step_30",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to cabinet 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_30_time_step_43",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine bowl 1",
+        "pred_action": "examine bowl 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_130_time_step_2",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "take mug 1 from countertop 1",
+        "pred_action": "take mug 1 from countertop 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_136_time_step_10",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_87_time_step_37",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "put bowl 1 in/on fridge 1",
+        "pred_action": "go to sink 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_84_time_step_35",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "open cabinet 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_142_time_step_19",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to sof1",
+        "pred_action": "go to sof1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_30_time_step_36",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to sink 1",
+        "pred_action": "go to sink 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_184_time_step_28",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine sidetable 1",
+        "pred_action": "examine sidetable 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_168_time_step_10",
+        "task": "pick_and_place",
+        "gt_action": "put candle 1 in/on toilet 1",
+        "pred_action": "put candle 1 in/on toilet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_0_time_step_38",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "inventory",
+        "pred_action": "examine toiletpaper 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_72_time_step_10",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "inventory",
+        "pred_action": "take tomato 1 from fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_69_time_step_22",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to countertop 1",
+        "pred_action": "go to cabinet 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_109_time_step_10",
+        "task": "pick_and_place",
+        "gt_action": "go to sofa1",
+        "pred_action": "go to sof1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_25_time_step_23",
+        "task": "pick_and_place",
+        "gt_action": "look",
+        "pred_action": "go to drawer 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_162_time_step_12",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "look",
+        "pred_action": "go to sidetable 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_126_time_step_38",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "take plate 1 from cabinet 1",
+        "pred_action": "take plate 1 from cabinet 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_44_time_step_48",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to drawer 2",
+        "pred_action": "go to drawer 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_140_time_step_43",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine alarmclock 1",
+        "pred_action": "examine alarmclock 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_82_time_step_10",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "put cup 1 in/on coffeemachine 1",
+        "pred_action": "put cup 1 in/on coffeemachine 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_143_time_step_8",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "open fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_25_time_step_47",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "examine sink 1",
+        "pred_action": "go to shelf 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_113_time_step_6",
+        "task": "pick_two_obj_and_place",
+        "gt_action": "go to cabinet 2",
+        "pred_action": "go to cabinet 2",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_126_time_step_10",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "open microwave 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_105_time_step_33",
+        "task": "pick_and_place",
+        "gt_action": "go to armchair 1",
+        "pred_action": "go to armchair 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_97_time_step_41",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "go to fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_171_time_step_8",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "go to fridge 1",
+        "pred_action": "open fridge 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_179_time_step_48",
+        "task": "look_at_obj_in_light",
+        "gt_action": "use desklamp 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_184_time_step_43",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "examine statue 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_157_time_step_49",
+        "task": "pick_cool_then_place_in_recep",
+        "gt_action": "inventory",
+        "pred_action": "go to countertop 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_90_time_step_33",
+        "task": "look_at_obj_in_light",
+        "gt_action": "look",
+        "pred_action": "look",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_0_time_step_4",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "take soapbar 1 from countertop 1",
+        "pred_action": "take soapbar 1 from countertop 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_35_time_step_10",
+        "task": "look_at_obj_in_light",
+        "gt_action": "examine desk 1",
+        "pred_action": "examine desk 1",
+        "exact_match": true,
+        "valid_json": true
+      },
+      {
+        "id": "episode_183_time_step_37",
+        "task": "pick_heat_then_place_in_recep",
+        "gt_action": "inventory",
+        "pred_action": "put apple 1 in/on microwave 1",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_164_time_step_42",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "take spatul1 from drawer 2",
+        "pred_action": "open drawer 2",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_83_time_step_2",
+        "task": "pick_and_place",
+        "gt_action": "go to bed 1",
+        "pred_action": "look",
+        "exact_match": false,
+        "valid_json": true
+      },
+      {
+        "id": "episode_11_time_step_12",
+        "task": "pick_clean_then_place_in_recep",
+        "gt_action": "take tomato 1 from fridge 1",
+        "pred_action": "take tomato 1 from fridge 1",
+        "exact_match": true,
+        "valid_json": true
+      }
+    ]
+  }
+}
