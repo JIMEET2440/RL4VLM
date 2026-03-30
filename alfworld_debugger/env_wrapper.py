@@ -140,7 +140,7 @@ class AlfWorldEnvWrapper:
     def step(self, action: str) -> StepResult:
         self.step_id += 1
         observation, scores, dones, info = self.env.step([action])
-        reward = float(_first_item(scores) if scores is not None else 0.0)
+        reward = self._compute_reward(scores, info)
         done = bool(_first_item(dones))
 
         next_state = self._build_state(observation, info, step_id=self.step_id)
@@ -152,6 +152,33 @@ class AlfWorldEnvWrapper:
             next_state=next_state,
             raw_step_output=(observation, scores, dones, info),
         )
+
+    def _compute_reward(self, scores: Any, info: Dict[str, Any]) -> float:
+        """Compute reward robustly across ALFWorld API variants.
+
+        Some ALFWorld modes return `scores=None` on step(). In that case,
+        derive a shaped reward from info fields used by the PPO pipeline.
+        """
+        if scores is not None:
+            try:
+                return float(_first_item(scores))
+            except Exception:
+                pass
+
+        won_raw = _first_item(info.get("won", 0.0))
+        gc_raw = _first_item(info.get("goal_condition_success_rate", 0.0))
+
+        try:
+            won = float(won_raw)
+        except Exception:
+            won = 0.0
+
+        try:
+            gc_success = float(gc_raw)
+        except Exception:
+            gc_success = 0.0
+
+        return 50.0 * won + gc_success
 
     def close(self) -> None:
         close_fn = getattr(self.env, "close", None)
@@ -182,22 +209,97 @@ class AlfWorldEnvWrapper:
         )
 
     def _extract_rgb_image(self) -> Optional[np.ndarray]:
+        # First try the official wrapper method used by ALFWorld interfaces.
         get_frames = getattr(self.env, "get_frames", None)
-        if not callable(get_frames):
+        if callable(get_frames):
+            try:
+                frames = get_frames()
+            except Exception:
+                frames = None
+            frame = self._pick_first_frame(frames)
+            image = self._coerce_rgb_array(frame)
+            if image is not None:
+                return image
+
+        # Fallback for API variants where frames live in THOR last_event.
+        frame = self._extract_last_event_frame()
+        image = self._coerce_rgb_array(frame)
+        if image is not None:
+            return image
+
+        return None
+
+    def _pick_first_frame(self, frames: Any) -> Any:
+        if isinstance(frames, (list, tuple)) and frames:
+            return frames[0]
+        return frames
+
+    def _extract_last_event_frame(self) -> Any:
+        candidates = []
+
+        envs = getattr(self.env, "envs", None)
+        if isinstance(envs, list) and envs:
+            candidates.append(envs[0])
+
+        inner_env = getattr(self.env, "env", None)
+        if inner_env is not None:
+            candidates.append(inner_env)
+
+        for candidate in candidates:
+            last_event = getattr(candidate, "last_event", None)
+            if last_event is not None:
+                frame = getattr(last_event, "frame", None)
+                if frame is not None:
+                    return frame
+
+            controller = getattr(candidate, "controller", None)
+            if controller is not None:
+                last_event = getattr(controller, "last_event", None)
+                if last_event is not None:
+                    frame = getattr(last_event, "frame", None)
+                    if frame is not None:
+                        return frame
+
+        return None
+
+    def _coerce_rgb_array(self, frame: Any) -> Optional[np.ndarray]:
+        if frame is None:
             return None
 
-        frames = get_frames()
-        if not isinstance(frames, list) or not frames:
+        array = None
+
+        if isinstance(frame, np.ndarray):
+            array = frame
+        else:
+            # PIL.Image, torch.Tensor, and similar array-like values.
+            try:
+                array = np.asarray(frame)
+            except Exception:
+                return None
+
+        if array is None:
             return None
 
-        frame = frames[0]
-        if not isinstance(frame, np.ndarray):
+        # Handle CHW tensors by moving channel axis to the end.
+        if array.ndim == 3 and array.shape[0] in (1, 3) and array.shape[-1] not in (1, 3):
+            array = np.transpose(array, (1, 2, 0))
+
+        if array.ndim != 3 or array.shape[-1] not in (3, 4):
             return None
 
-        if frame.ndim == 3 and frame.shape[-1] == 3:
-            # ALFWorld THOR frames are BGR in this codebase; convert to RGB.
-            return frame[:, :, [2, 1, 0]].copy()
-        return frame.copy()
+        # Drop alpha channel if present.
+        if array.shape[-1] == 4:
+            array = array[:, :, :3]
+
+        # Cast to uint8 safely.
+        if array.dtype != np.uint8:
+            try:
+                array = np.clip(array, 0, 255).astype(np.uint8)
+            except Exception:
+                return None
+
+        # In this codebase THOR frames are BGR; convert to RGB for saved PNGs.
+        return array[:, :, [2, 1, 0]].copy()
 
     def _extract_goal(self, info: Dict[str, Any]) -> str:
         for key in ("task", "goal", "goal_desc", "task_desc"):

@@ -72,9 +72,14 @@ def summarize_structure(value: Any, depth: int = 0, max_depth: int = 3) -> Any:
 
 
 class DebugRenderer:
-    def __init__(self, image_dir: str, save_images: bool = True):
+    def __init__(
+        self,
+        image_dir: str,
+        save_images: bool = True,
+    ):
         self.image_dir = Path(image_dir)
         self.save_images = save_images
+        self._image_counter = 0
         self.image_dir.mkdir(parents=True, exist_ok=True)
         self.console = Console() if _HAS_RICH else None
 
@@ -84,7 +89,8 @@ class DebugRenderer:
         if not _HAS_PIL:
             return None
 
-        path = self.image_dir / f"step_{step_id:04d}.png"
+        self._image_counter += 1
+        path = self.image_dir / f"frame_{self._image_counter:06d}_step_{step_id:04d}.png"
         image_array = np.asarray(rgb_image)
         image_array = np.clip(image_array, 0, 255).astype(np.uint8)
         Image.fromarray(image_array).save(path)
@@ -168,3 +174,6 @@ class DebugRenderer:
             self.console.print(f"[bold red]ERROR:[/bold red] {message}")
         else:
             print(f"ERROR: {message}")
+
+    def close(self) -> None:
+        return

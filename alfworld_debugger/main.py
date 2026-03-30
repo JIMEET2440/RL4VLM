@@ -105,6 +105,10 @@ def _normalize(value: str) -> str:
     return " ".join(value.lower().strip().split())
 
 
+def _default_debug_outputs_dir() -> Path:
+    return Path(__file__).resolve().parent / "debug_outputs"
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Interactive ALFWorld debugging tool")
     parser.add_argument(
@@ -123,7 +127,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--image-dir",
         type=str,
-        default="./debug_outputs/images",
+        default=str(_default_debug_outputs_dir() / "images"),
         help="Directory to save step images.",
     )
     parser.add_argument(
@@ -139,7 +143,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--log-path",
         type=str,
-        default="./debug_outputs/trajectory.json",
+        default=str(_default_debug_outputs_dir() / "trajectory.json"),
         help="JSON trajectory output path.",
     )
     return parser
@@ -150,7 +154,10 @@ def run() -> None:
 
     config_path = _resolve_config_path(args.config)
 
-    renderer = DebugRenderer(image_dir=args.image_dir, save_images=not args.no_save_images)
+    renderer = DebugRenderer(
+        image_dir=args.image_dir,
+        save_images=not args.no_save_images,
+    )
     logger = TrajectoryLogger(enabled=args.log_json, output_path=args.log_path)
 
     env = AlfWorldEnvWrapper(config_path=str(config_path), train_eval="eval", batch_size=1)
@@ -227,6 +234,7 @@ def run() -> None:
 
     finally:
         logger.flush()
+        renderer.close()
         env.close()
         if args.log_json:
             print(f"Trajectory log saved: {Path(args.log_path).resolve()}")
